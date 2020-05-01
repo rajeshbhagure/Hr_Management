@@ -1,0 +1,98 @@
+{% extends 'manager/comman.html' %}
+{% block comman %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Homepage</title>
+       <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css'%}">
+<!--===============================================================================================-->
+    <style>
+        body{
+            background-image: url("{% static 'images/about.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+  </head>
+  <body>
+   {% include 'manager/manu.html' %}
+   {% if request.session.m_id %}
+
+  </div>
+  <br> <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 20px">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-happy"></i></span>
+                    <a href="{% url 'manager_login' %}">
+                    <img src="{% static 'icons/next-back-icon-png-3.png' %}" height="30" width="30">
+                        <h3>Back</h3></a>
+                </div><!-- end col -->
+  <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>RECRUITMENT SCHEDULE </b></h1>
+  <br><br>
+  <div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url('uploads/parallax_04.jpg');">
+        <div class="container">
+            <div class="row text-center stat-wrap">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-briefcase"></i></span>
+                   <a href="{% url 'new_recruit' %}">
+                    <img src="{% static 'icons/icons8-create-document-64.png' %}" height="60" width="60">
+                   <h3>New Recruitment Details</h3>  </a>
+                </div><!-- end col -->
+
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-idea"></i></span>
+                     <a href="{% url 'update_recruit' %}">
+                    <img src="{% static 'icons/icons8-update-file-64.png' %}" height="60" width="60">
+                         <h3>Modifying Recruitment Details</h3></a>
+                </div><!-- end col -->
+                <div class="col-md-3 col-sm-6 col-xs-62">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-customer-service"></i></span>
+                    <a href="{% url 'delete_recruit' %}">
+                    <img src="{% static 'icons/icons8-delete-file-64.png' %}" height="60" width="60">
+                    <h3>Deleting Recruitment Details</h3> </a>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </table>
+  {% endif %}
+  </body>
+</html>
+{% endblock %}

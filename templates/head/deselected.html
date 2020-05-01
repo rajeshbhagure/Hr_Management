@@ -1,0 +1,75 @@
+{% extends "head/comman.html" %}
+{% block comman %}
+    {% load static %}
+    {% include 'head/manu.html' %}
+    <style>
+    {#input#}
+    {#{#}
+    {#    width: 300px;#}
+    {#    background: transparent;#}
+    {#    border-color: darkblue;#}
+    {#    color: darkblue;#}
+    {#}#}
+    body{
+        background-image: url("{% static 'images/about.png' %}");
+        background-size: cover;
+
+    }
+    th{
+    color: darkcyan;
+        text-align: center;
+    }
+    td{
+    color: darkblue;
+        text-align: center;
+    }
+
+    input{
+               color: darkblue;
+               width: 250px;
+               border-color: darkblue;
+
+    }
+
+    </style>
+    <br>
+<br>
+    {% if request.session.user_id %}
+    <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Rejected Application List</b></h1>
+<br>
+    <div align="center">
+    <table align="center" border="2" width="700">
+        <tr>
+            <th>
+            InterView_Id
+            </th>
+            <th>
+            InterViewer
+            </th>
+            <th>
+            Applicant Id
+            </th>
+            <th>
+            Schedule_Time
+            </th>
+            <th>Result</th>
+        </tr>
+        {% for x in data %}
+            <tr>
+            <td>
+            {{ x.i_id }}
+            </td>
+            <td>
+            {{ x.interviewer }}
+            </td>
+            <td>
+            {{ x.applicant_id }}
+            </td>
+                <td>{{ x.schedule_timestamp }}</td>
+                <td>{{ x.result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    {% endif %}
+{% endblock %}

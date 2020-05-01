@@ -1,0 +1,160 @@
+{% extends "applicant/comman.html" %}
+{% block comman %}
+    {% load static %}
+    {% include 'applicant/manu.html' %}
+    <style>
+    input
+    {
+        width: 300px;
+        background: transparent;
+        border-color: darkblue;
+        color: darkblue;
+    }
+    body{
+        background-image: url("{% static 'images/about.png' %}");
+        background-size: cover;
+
+    }
+    </style>
+  <body>
+  {% if request.session.user_id %}
+    <br>
+<br>
+    <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Application Form</b></h1>
+<br><br>
+   <div align="center">
+       <form  method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+       <table border="2" align="center" width="500">
+           {% for x in messages %}
+           <tr>
+               <th colspan="3">
+                   {{ x }}
+               </th>
+           </tr>
+           {% endfor %}
+           <tr>
+               <th>
+           </tr>
+    <tr>
+        <th>
+            {{ form.name.label }}
+        </th>
+        <th>
+            {{ form.name }}
+        </th>
+        <th>
+            {{ form.name.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.dob.label }}
+        </th>
+        <th>
+            {{ form.dob }}
+        </th>
+        <th>
+            {{ form.dob.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.gender.label }}
+        </th>
+        <th>
+            {{ form.gender }}
+        </th>
+        <th>
+            {{ form.gender.errors }}
+        </th>
+    </tr>
+       <th>
+            {{ form.email.label }}
+        </th>
+        <th>
+            {{ form.email }}
+        </th>
+        <th>
+            {{ form.email.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.m_no.label }}
+        </th>
+        <th>
+            {{ form.m_no }}
+        </th>
+        <th>
+            {{ form.m_no.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.address.label }}
+        </th>
+        <th>
+            {{ form.address }}
+        </th>
+        <th>
+            {{ form.address.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.qualification.label }}
+        </th>
+        <th>
+            {{ form.qualification }}
+        </th>
+        <th>
+            {{ form.qualification.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.post.label }}
+        </th>
+        <th>
+            {{ form.post }}
+        </th>
+        <th>
+            {{ form.post.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.percentage.label }}
+        </th>
+        <th>
+            {{ form.percentage }}
+        </th>
+        <th>
+            {{ form.percentage.errors }}
+        </th>
+    </tr>
+       <tr>
+        <th>
+            {{ form.resume.label }}
+        </th>
+        <th>
+            {{ form.resume }}
+        </th>
+        <th>
+            {{ form.resume.errors }}
+        </th>
+    </tr>
+       <tr>
+           <th colspan="3" style="text-align: center">
+               <button type="submit" class="login100-form-btn">
+                   Apply
+               </button>
+           </th>
+       </tr>
+   </table>
+   </form>
+   </div>
+  {% endif %}
+  </body>
+{% endblock %}

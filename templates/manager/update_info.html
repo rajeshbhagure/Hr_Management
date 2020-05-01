@@ -1,0 +1,148 @@
+{% extends 'manager/comman.html' %}
+{% block comman %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>interview</title>
+       <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css'%}">
+<!--===============================================================================================-->
+    <style>
+        body{
+            background-image: url("{% static 'images/about.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        input{
+            width: 100%;
+            border-color: darkblue;
+            color: darkblue;
+            {#background: transparent;#}
+
+
+        }
+        th{
+            color: #0056b3;
+        }
+        label{
+
+        }
+
+    </style>
+  </head>
+  <body>
+  {% include 'manager/manu.html' %}
+  <br>
+  {% if request.session.m_id %}
+
+  <br>
+  <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>INTERVIEW SCHEDULE PAGE</b></h1><br><br>
+
+<form action="{% url 'update_recruit' %}" method="post">
+    {% csrf_token %}
+    <div align="center">
+       <table border="3" align="center" width="500" height="200">
+      <tr>
+          <th>
+              <h3 style="text-align: center;color: red">MODIFYING RECRUITEMENT DETAILS</h3>
+          </th>
+      </tr>
+           {% for x in qs %}
+           <tr>
+               <th>
+                   <label>OppCode:</label><input type="number" name="t1" required value="{{ x.oppcode }}" readonly>
+               </th>
+           </tr>
+            <tr>
+               <th>
+                   <label>qualification:</label><input type="text" name="t2" required value="{{ x.qualification }}">
+               </th>
+           </tr>
+            <tr>
+               <th>
+                 <label>start_register:</label><input type="date" value="{{ x.start_register }}" required name="t3">
+               </th>
+           </tr>
+           <tr>
+               <th>
+                 <tr>
+               <th>
+                <lable> last_register:</lable> <input type="date" value="{{ x.last_register }}" required name="t4">
+               </th>
+           </tr>
+
+            <tr>
+               <th>
+                 <label>dept_id:</label> <input type="number" name="t5" required value="{{ x.dept_id }}">
+               </th>
+           </tr>
+            <tr>
+               <th>
+                   <lable> position:</lable> <input type="number" name="t7" required value="{{ x.position }}">
+               </th>
+           </tr>
+            <tr>
+               <th>
+                   <lable> description:</lable><input type="text" name="t8" required value="{{ x.description }}">
+               </th>
+           </tr>
+            <tr>
+               <th>
+                   <lable>response:</lable><input type="text" name="t9" required value="{{ x.response }}">
+               </th>
+           </tr>
+           <tr>
+               <th>
+                   <lable>cno:</lable><input type="number" name="t10" required value="{{ x.cno }}">
+               </th>
+           </tr>
+           <tr>
+               <th style="text-align: center">
+                   <button type="submit" class="btn btn-info">Update_Recruitment</button>
+               </th>
+           </tr>
+           {% endfor %}
+  </table>
+    </div>
+</form>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endif %}
+  </body>
+</html>
+{% endblock %}
+

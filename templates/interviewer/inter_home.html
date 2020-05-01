@@ -1,0 +1,79 @@
+{% extends "applicant/comman.html" %}
+{% block comman %}
+    {% load static %}
+    {% include 'interviewer/manu.html' %}
+    <style>
+    {#input#}
+    {#{#}
+    {#    width: 300px;#}
+    {#    background: transparent;#}
+    {#    border-color: darkblue;#}
+    {#    color: darkblue;#}
+    {#}#}
+    body{
+        background-image: url("{% static 'images/about.png' %}");
+        background-size: cover;
+
+    }
+    th{
+    color: darkblue;
+    }
+    input{
+               color: darkblue;
+               width: 250px;
+               border-color: darkblue;
+
+    }
+
+    </style>
+    <br>
+<br>
+    {% if request.session.user_id %}
+    <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Conducting Preparing Final Selection List</b></h1>
+<br><br>
+    <form action="{% url 'add_interview' %}" method="post">
+    {% csrf_token %}
+    <div align="center">
+        {% for x in messages %}
+                  <div class="alert alert-warning" role="alert">
+                    {{ x }}
+                  </div>
+
+        {% endfor %}
+    <table align="center" border="2" width="400">
+        <tr>
+            <th>
+                Select An Applicant:
+                <br>{{ data.applicant_id }}
+                <br>
+            </th>
+        </tr>
+     <tr>
+            <th>
+                Applicant Status:<br>{{ data.result }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Interview Date:<br>{{ data.schedule_timestamp }}
+            </th>
+        </tr>
+         <tr>
+            <th>
+                Employee Id:<br>{{ data.i_id }}
+            </th>
+        </tr>
+         <tr>
+            <th>
+                Interview Id:<br>{{ data.interviewer }}
+            </th>
+        </tr>
+        <tr>
+            <th style="text-align: center"><br>
+                <button class="btn btn-info" type="submit">Save</button>
+            </th>
+        </tr>
+    </table></div>
+    {% endif %}
+
+    </form>{% endblock %}

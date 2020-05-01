@@ -1,0 +1,105 @@
+{% extends 'comman.html' %}
+{% block comman %}
+{% load static %}
+    {% if request.session.admin_id %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+     body{
+              background-image: url({% static "images/about.png" %});
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+        input{
+            background: transparent;
+        }
+     </style>
+</head>
+<body>
+ {% include 'admin_comman.html' %}
+<form action="" method="post">
+    {% csrf_token %}
+     <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Update Employee Page</b></h1>
+    <br> <br>
+    <div align="center">
+<table align="center" border="2">
+          <th style="color: darkcyan">
+              {{ form.Emp_name.label }}:
+          </th>
+           <th>
+              {{ form.Emp_name }}
+          </th>
+          <th>
+              {{ form.Emp_name.error }}
+          </th>
+      </tr>
+        <tr>
+          <th style="color: darkcyan">
+              {{ form.address.label }}:
+          </th>
+           <th>
+              {{ form.address }}
+          </th>
+          <th>
+              {{ form.address.error }}
+          </th>
+      </tr>
+      <tr>
+          <th style="color: darkcyan">
+              Contact_no:
+          </th>
+           <th>
+              {{ form.contactno }}
+          </th>
+          <th>
+              {{ form.contactno.error }}
+          </th>
+      </tr>
+        <tr>
+          <th style="color: darkcyan">
+              {{ form.Designation.label }}:
+          </th>
+           <th>
+              {{ form.Designation}}
+          </th>
+          <th>
+              {{ form.Designation.error }}
+          </th>
+      </tr>
+        <tr>
+          <th style="color: darkcyan">
+              {{ form.email.label }}:
+          </th>
+           <th>
+              {{ form.email }}
+          </th>
+          <th>
+              {{ form.email.error }}
+          </th>
+      </tr>
+        <tr>
+          <th style="color: darkcyan">
+              {{ form.password.label }}:
+          </th>
+           <th>
+              {{ form.password }}
+          </th>
+          <th>
+              {{ form.password.error }}
+          </th>
+      </tr>
+      <tr>
+          <th style="text-align: center" colspan="3"> <br>
+              <button type="submit" class="btn btn-info">Submit</button>
+          </th>
+      </tr>
+</table>
+    </div>
+</form>
+</body>
+</html>
+    {% endif %}
+{% endblock %}

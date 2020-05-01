@@ -1,0 +1,56 @@
+{% extends 'comman.html' %}
+{% block comman %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}" >
+    <title>Homepage</title>
+
+       <style>
+         body{
+              background-image: url({% static "images/about.png" %});
+              background-repeat: no-repeat;
+              background-size: cover;
+             backdrop-filter: blur();
+          }
+      </style>
+  </head>
+<body>
+{% include 'manu.html' %}
+<br><br><br>
+	<div id="header">
+			<div id="logo">
+				<a href="index.html"><img src="{% static 'H_images/logo.jpg' %}" alt="" /></a>
+			</div>
+
+	</div>
+	<div id="body">
+		<div class="header">
+			<div>
+				<ul>
+					<li><img src="{% static 'H_images/discuss.jpg'%}" alt="" /></li>
+					<li><img src="{% static 'H_images/flags.jpg'%}" alt="" /></li>
+					<li><img src="{% static 'H_images/graph.jpg'%}" alt="" /></li>
+				</ul>
+				<div>
+					<h3 style="color: black;font-family: Impact">This website has been designed by <span><a href="">Rajesh Bhagure</a> for you,an company Organization.</span></h3>
+					<p style="color: darkcyan;font-family:'Arial Black' ">You can remove any link to our website from this website template, you're free to use this website template without linking back to us.If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forum">Forum</a>.</p>
+				</div>
+			</div>
+		</div>
+<div>
+		</div>
+		<div align="center">
+			<p>&copy Copyright 2020. All rights reserved</p>
+		</div>
+	</div>
+</body>
+</html>
+{% endblock %}

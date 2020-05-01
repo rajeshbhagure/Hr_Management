@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manu</title></title>
+</head>
+<body>
+<div style="text-align: center;width:1400px; width: 1400px">
+<nav id="navbar-example2"class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+  <ul class="nav nav-pills">
+          <li class="nav-item" >
+              <a class="nav-link" href="{% url 'add_employee' %}" style="margin-left: 20px;font-family: Elephant" >Add_employee</a>
+          </li>
+            <li class="nav-item" style="margin-left:80px;font-family: Elephant" >
+                <a class="nav-link"href="{% url 'view_employee' %}" >View_Employee</a>
+             </li>
+      <li class="nav-item" style="margin-left:90px ;font-family: Elephant">
+                <a class="nav-link" href="{% url 'update_employee' %}" >Update_Employee</a>
+        </li>
+      <li class="nav-item" style="margin-left:110px;font-family: Elephant">
+                <a class="nav-link" href="{% url 'delete_employee' %}" >Delete_Employee</a>
+        </li>
+      <li class="nav-item" style="margin-left:110px;font-family: Elephant">
+          {% if request.session.admin_id %}
+                <a class="nav-link" href="{% url 'logout' %}" >Logout</a>
+          {% endif %}
+        </li>
+      </ul>
+</nav></div>
+</body>
+</html>

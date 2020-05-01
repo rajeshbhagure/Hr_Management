@@ -1,0 +1,63 @@
+{% extends "head/comman.html" %}
+{% block comman %}
+    {% load static %}
+    {% include 'head/manu.html' %}
+    <style>
+    {#input#}
+    {#{#}
+    {#    width: 300px;#}
+    {#    background: transparent;#}
+    {#    border-color: darkblue;#}
+    {#    color: darkblue;#}
+    {#}#}
+    body{
+        background-image: url("{% static 'images/about.png' %}");
+        background-size: cover;
+
+    }
+    th{
+    color: darkblue;
+    }
+    input{
+               color: darkblue;
+               width: 250px;
+               border-color: darkblue;
+
+    }
+
+    </style>
+    <br>
+<br>
+    {% if request.session.user_id %}
+    <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Conducting Preparing Final Selection List</b></h1>
+<br><br>
+    <div align="center">
+        {% for x in messages %}
+                  <div class="alert alert-warning" role="alert">
+                    {{ x }}
+                  </div>
+
+        {% endfor %}
+    <table align="center" border="0" width="700">
+        <tr>
+            <th style="text-align: center">
+                <a href="{% url 'listed' %}">
+                    Shortlisted Applications:<br> <img src="{% static 'icons/shortlisted.png' %}" width="70" width="70">
+            </a>
+            </th>
+            <th style="text-align: center">
+                 <a href="{% url 'selected' %}">
+                Selected Applications:<br><img src="{% static 'icons/file_021-checkmark_file-text-document-done-selected-doc-512.png' %}" width="80" width="80">
+            </a>
+            </th>
+            <th style="text-align: center">
+                <a href="{% url 'deselected' %}">
+                Deselected Applications:<br><img src="{% static 'icons/document_doc_page_paper_deselect_delete-512.png' %}" width="70" width="70">
+        </a>
+            </th>
+
+        </tr>
+    </table>
+    </div>
+    {% endif %}
+{% endblock %}

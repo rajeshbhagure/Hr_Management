@@ -1,0 +1,112 @@
+{% load static %}
+{% if request.session.admin_id %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Homepage</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}" >
+       <style>
+
+     body{
+              background-image: url({% static "images/about.png" %});
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+
+          td{
+              text-align: center;
+              width: 300px;
+              color: darkblue;
+          }
+           th{
+               text-align: center;
+               color: darkcyan;
+           }
+      </style>
+  </head>
+  <body>
+  <table align="center" border="0" width="1400">
+      <tr>
+          <th rowspan="2" style="text-align: center">
+              <img src="{% static 'images/hr-icon-67.png' %}" height="200" width="260">
+          </th>
+
+          <th><h1 style="font-family: 'Agency FB'; color: coral;;font-size:85px">
+              <b><span style="color: chocolate">HR</span> Operation Management</b>
+          </h1></th>
+      </tr>
+      <tr>
+      <th style="color: yellow;font-size: 25px;font-family: 'Arial Rounded MT Bold';">
+          <marquee>
+            Nothing we do is more important than hiring people....
+          </marquee>
+      </th>
+  </tr>
+
+  </table>
+   {% include 'admin_comman.html' %}
+  <br><br>
+  <table align="center" border="2" width="800">
+       <tr>
+          <th colspan="6" style="text-align: center">
+            <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Delete Employee Page</b></h1>
+          </th>
+      </tr>
+      <tr>
+          <th>
+              Emp_id:
+          </th>
+          <th>
+              Emp_name:
+          </th>x
+          <th>
+              Designation:
+          </th>
+      <th>
+              Address:
+          </th>
+        <th>
+              Delete:
+          </th>
+      </tr>
+      {% for x in qs %}
+          <tr>
+          <td>
+
+          {{ x.id}}
+
+          </td>
+              <td>
+                  {{ x.Emp_name }}
+              </td>
+              <td>
+                  {{ x.Designation }}
+              </td>
+          <td>
+                  {{ x.address }}
+              </td>
+          <th>
+              <a href="{% url 'deleted' %}?id={{ x.id }}">
+              <img src="{% static 'icons/icons8-delete-file-64.png' %}" height="25" width="25">
+              </a>
+          </th>
+          </tr>
+      {% endfor %}
+  </table>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <br><br>
+   <footer style="text-align: center"><span>&copy;Copyright AllRight Reserved</span></footer>
+  </body>
+</html>
+{% endif %}

@@ -1,0 +1,93 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Homepage</title>
+       <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}" ></head>
+<style>
+     body{
+              background-image: url({% static "images/about.png" %});
+              background-repeat: no-repeat;
+              background-size: cover;
+          }
+     </style>
+  </head>
+  <body>
+  <table align="center" border="0" width="1400" >
+      <tr>
+          <th rowspan="2" style="text-align: center">
+              <img src="{% static 'images/hr-icon-67.png' %}" height="200" width="260">
+          </th>
+
+          <th><h1 style="font-family: 'Agency FB'; color: coral;;font-size:85px">
+              <b><span style="color: chocolate">HR</span> Operation Management</b>
+          </h1></th>
+      </tr>
+      <tr>
+      <th style="color: yellow;font-size: 25px;font-family: 'Arial Rounded MT Bold';">
+          <marquee>
+            Nothing we do is more important than hiring people....
+          </marquee>
+      </th>
+  </tr>
+      <tr>
+          <th colspan="2" align="center">
+              {% include 'admin_comman.html' %}
+          </th>
+      </tr>
+  </table>
+  <br><br>
+  <br>
+  {% if request.session.admin_id %}
+<h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Admin Homepage Page</b></h1><br><br>
+  <div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url('uploads/parallax_04.jpg');">
+        <div class="container">
+            <div class="row text-center stat-wrap">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-briefcase"></i></span>
+                   <a href="{% url 'add_employee' %}">
+                    <img src="{% static 'icons/icons8-create-document-64.png' %}" height="60" width="60">
+                   <h3>Create Employee</h3>  </a>
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-happy"></i></span>
+                    <a href="{% url 'view_employee' %}">
+                    <img src="{% static 'icons/icons8-view-64.png' %}" height="60" width="60">
+                        <h3>View Employee</h3></a>
+                </div><!-- end col -->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-idea"></i></span>
+                     <a href="{% url 'update_employee' %}">
+                    <img src="{% static 'icons/icons8-update-file-64.png' %}" height="60" width="60">
+                         <h3>Update Employee</h3></a>
+                </div><!-- end col -->
+                <div class="col-md-3 col-sm-6 col-xs-62">
+                    <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-customer-service"></i></span>
+                    <a href="{% url 'delete_employee' %}">
+                    <img src="{% static 'icons/icons8-delete-file-64.png' %}" height="60" width="60">
+                    <h3>Delete Employee</h3> </a>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+{% endif %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manu</title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css'%}">
+</head>
+<body>
+
+<div style="text-align: center;width:1200px; width: 1500px">
+<nav id="navbar-example2"class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <ul class="nav nav-pills">
+          <li class="nav-item" >
+              <a class="nav-link" href="{% url 'index' %}" style="margin-left: 20px;font-family: Elephant" >Home</a>
+          </li>
+            <li class="nav-item" style="margin-left:80px;font-family: Elephant" >
+                <a class="nav-link"href="{% url 'admin_login' %}" >Admin</a>
+             </li>
+      <li class="nav-item" style="margin-left:90px ;font-family: Elephant">
+                <a class="nav-link" href="{% url 'm_login' %}" >Manager</a>
+        </li>
+      <li class="nav-item" style="margin-left:110px;font-family: Elephant">
+                <a class="nav-link" href="{% url 'a_login' %}" >Applicant</a>
+        </li>
+      <li class="nav-item" style=" margin-left:110px;font-family: Elephant">
+
+      <a class="nav-link" href="{% url 'i_login' %}">Interviewer</a>
+      </li>
+      <li class="nav-item" style="margin-left:110px;font-family: Elephant">
+
+      <a class="nav-link" href="{% url 'hr_login' %}">HRhead</a>
+      </li>
+  </ul>
+</nav></div>
+</body>
+</html>

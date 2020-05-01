@@ -1,0 +1,85 @@
+{% extends "head/comman.html" %}
+{% block comman %}
+    {% load static %}
+    {% include 'head/manu.html' %}
+    <style>
+    {#input#}
+    {#{#}
+    {#    width: 300px;#}
+    {#    background: transparent;#}
+    {#    border-color: darkblue;#}
+    {#    color: darkblue;#}
+    {#}#}
+    body{
+        background-image: url("{% static 'images/about.png' %}");
+        background-size: cover;
+
+    }
+    th{
+    color: darkcyan;
+        text-align: center;
+    }
+    td{
+    color: darkblue;
+        text-align: center;
+    }
+
+    input{
+               color: darkblue;
+               width: 250px;
+               border-color: darkblue;
+
+    }
+
+    </style>
+    <br>
+<br>
+    {% if request.session.user_id %}
+    <h1 style="text-align: center;font-family: 'Agency FB';color:darkorchid;font-size: 50px"><b>Shortlisted Application List</b></h1>
+<br>
+    <div align="center">
+    <table align="center" border="2" width="700">
+        <tr>
+            <th>
+            ID_NO
+            </th>
+            <th>
+            Name
+            </th>
+            <th>
+            Qualification
+            </th>
+            <th>
+            Date_of_Birth
+            </th>
+            <th>Percentage</th>
+            <th>
+            Email
+            </th>
+            <th>Contact</th>
+            <th>Status</th>
+        </tr>
+        {% for x in data %}
+            <tr>
+            <td>
+            {{ x.id }}
+            </td>
+            <td>
+            {{ x.name }}
+            </td>
+            <td>
+            {{ x.qualification }}
+            </td>
+                <td>{{ x.dob }}</td>
+                <td>{{ x.percentage }}</td>
+                <td>{{ x.email }}</td>
+            <td>
+            {{ x.m_no }}
+            </td>
+                <td>Shortlisted</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    {% endif %}
+{% endblock %}
